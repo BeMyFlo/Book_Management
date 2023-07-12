@@ -10,7 +10,7 @@ require('dotenv').config();
 app.use(bodyParser.json({limit:"50mb"}));
 app.use(cors());
 app.use(morgan("common"))
-
+app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 mongoose
   .connect((process.env.URL_MONGOOSE))
   .then(() => {
@@ -21,6 +21,7 @@ mongoose
   });
   
   //ROUTES
+  app.use(express.static('public'));
   app.use("/v1/author",authorRoutes)
 
   const PORT = 3000;

@@ -7,4 +7,8 @@ const authorRoute = require("express").Router();
 
 authorRoute.post("/",authorController.addAuthor)
 
-module.exports = authorRoute;
+//Get all authors
+
+authorRoute.get("/",authorController.getAllAuthors)
+
+module.exports = authorRoute;   
