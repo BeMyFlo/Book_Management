@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 const morgan = require("morgan");
 const app = express();
 const authorRoutes = require("./Routes/author")
+const bookRoutes = require("./Routes/book")
 require('dotenv').config();
 
 app.use(bodyParser.json({limit:"50mb"}));
@@ -22,8 +23,8 @@ mongoose
   
   //ROUTES
   app.use(express.static('public'));
-  app.use("/v1/author",authorRoutes)
-
+  app.use("/v1/author",authorRoutes);
+  app.use("/v1/book",bookRoutes);
   const PORT = 3000;
   app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);

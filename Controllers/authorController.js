@@ -28,6 +28,40 @@ const authorController = {
     } catch (err) {
       res.status(500).json(err);
     }
+  },
+  getOneAuthor: async (req, res) => {
+    try {
+      const author = await Author.findById(req.params.id).populate("books");
+      res.status(200).json(author);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  },
+  putAuthor: async (req, res) => {
+    try {
+      const author = await Author.findById(req.params.id);
+      await author.updateOne({ $set: req.body });
+      res.status(200).json("Update successfully!");
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    }
+  },
+  deleteAuthor: async (req, res) => {
+    try {
+      const author = await Author.findById(req.params.id);
+      if (!author) {
+        // Kiểm tra xem tác giả có tồn tại không
+        return res.status(404).json("Author not found!");
+      }
+  
+      await author.deleteOne(); // Xóa tác giả // Xóa tác giả
+  
+      res.status(200).json("Author deleted successfully!");
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    }
   }
 };
 

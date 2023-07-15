@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Author</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <h1>Add Author</h1>
+  <form id="addAuthorForm" action="/v1/author/createAuthor" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year">
+
+    <button type="submit">Add Author</button>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

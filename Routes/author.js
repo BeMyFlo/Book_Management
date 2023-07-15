@@ -1,14 +1,16 @@
 const authorController = require("../Controllers/authorController");
 const { Author } = require("../Models/model");
 
-const authorRoute = require("express").Router();
+const router = require("express").Router();
 
 //Add
-
-authorRoute.post("/",authorController.addAuthor)
-
-//Get all authors
-
-authorRoute.get("/",authorController.getAllAuthors)
-
-module.exports = authorRoute;   
+router.post("/createAuthor",authorController.addAuthor)
+//All author
+router.get("/",authorController.getAllAuthors)
+//1 author
+router.get("/:id",authorController.getOneAuthor)
+//update
+router.put("/:id",authorController.putAuthor)
+//Delete
+router.delete("/:id",authorController.deleteAuthor)
+module.exports = router;
