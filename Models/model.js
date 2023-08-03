@@ -30,6 +30,16 @@ const bookSchema = new mongoose.Schema({
         ref:"Author"
     }
 });
+const accountSchema = new mongoose.Schema({
+    username:{
+        type:String
+    },
+    password:{
+        type:String
+    }
+});
  let Book = mongoose.model("Book",bookSchema);
- let Author = mongoose.model("Author",authorSchema)
- module.exports = {Book,Author};
+ let Author = mongoose.model("Author",authorSchema);
+ const Account = mongoose.model("Account", accountSchema);
+
+ module.exports = {Book,Author,Account};
