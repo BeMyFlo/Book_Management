@@ -10,6 +10,6 @@ const cookieParser = require('cookie-parser');
 
  router.get("/",accountController.getAll);
  router.post("/login",accountController.login);
- router.get('/private',accountController.checkLogin, accountController.welcome);
+ //router.get('/private',accountController.checkLogin, accountController.welcome);
 
 module.exports = router

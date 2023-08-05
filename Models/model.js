@@ -36,6 +36,9 @@ const accountSchema = new mongoose.Schema({
     },
     password:{
         type:String
+    },
+    role:{
+        type:String
     }
 });
  let Book = mongoose.model("Book",bookSchema);
